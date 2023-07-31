@@ -1,38 +1,69 @@
 .App {
   text-align: center;
+  padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.channel {
+  position: relative;
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sine-wave {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.event {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 255, 0.3);
+  border: 1px solid blue;
+  border-radius: 5px;
+  cursor: move;
 }
 
-.App-link {
-  color: #61dafb;
+.event-resize-left,
+.event-resize-right {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  cursor: ew-resize;
+  z-index: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.event-resize-left {
+  left: -5px;
+}
+
+.event-resize-right {
+  right: -5px;
+}
+
+.event-move {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: move;
+  opacity: 0; /* Hide the move cursor, but still listen to the events */
+}
+
+.popup {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 2;
 }
